@@ -1,9 +1,9 @@
 import { CDN_URL } from "../utils/constant";
 
-const ResturantCard = (props) =>{
-    const {restaurants} = props;
-    const {name, cuisines, avgRating , costForTwo, locality,cloudinaryImageId} = restaurants.info;
+const ResturantCard = ({name, cuisines, avgRating , costForTwo, locality,cloudinaryImageId}) =>{
+    
     return (
+       
        <div className="resturant-card">
           <img  src={CDN_URL + cloudinaryImageId}/>
           <h3>{name}</h3>
