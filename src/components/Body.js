@@ -1,6 +1,7 @@
  import React, { useState, useEffect } from "react";
 import { ShimmerUi } from "./Shimmer";
 import RestaurantCard from "./RestaurantCard";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [filterRestaurantsList, setFilterRestaurantsList] = useState([]);
@@ -18,7 +19,6 @@ const Body = () => {
       const restaurantsJSON = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
       setListOfRestaurants(restaurantsJSON);
       setFilterRestaurantsList(restaurantsJSON);
-      console.log(restaurantsJSON)
     } catch (error) {
       console.error('Error agaya bhai shi se check kr api link', error);
     }
@@ -53,7 +53,7 @@ const Body = () => {
 
       <div className="resturant-container">
         {filterRestaurantsList.map((restaur) => (
-          <RestaurantCard key={restaur.info?.id} {...restaur?.info} />
+        <Link to={"/restaurantmenu/" + restaur.info?.id}> <RestaurantCard key={restaur.info?.id} {...restaur?.info} /> </Link>  
         ))}
       </div>
     </div>
