@@ -24,7 +24,7 @@ export const RestaurantMenu = () => {
 
     const {name, cuisines, cloudinaryImageId, areaName, city, costForTwoMessage} = resInfo?.cards[0]?.card?.card?.info || {};
     
-    const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card || [];
+    const itemCards = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards || [];
     console.log(itemCards);
 
 
