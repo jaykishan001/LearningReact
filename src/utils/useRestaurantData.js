@@ -23,7 +23,7 @@ const useRestaurantData = () => {
 
   return {
     filterRestaurantsList,
-    listOfRestaurants
+    listOfRestaurants, setFilterRestaurantsList
   };
 };
 

@@ -24,30 +24,31 @@ const Body = () => {
     <ShimmerUi />
   ) : (
     <div className="body">
-      <div className="search-container">
-        <div className="serach">
+     
+      <div className=" flex justify-center">
+        <div className="serach m-4 p-4">
           <input
             type="text"
-            className="search-box"
+            className="border border-solid border-black rounded-md"
             value={searchTxt}
             onChange={(e) => {
               setSearchTxt(e.target.value);
             }}
           />
-          <button
+
+          <button className="px-4 py-2 bg-green-100 mx-4 rounded-md"
             onClick={() => {
               const filteredList = listOfRestaurants.filter((resta) => {
                 return resta?.info?.name.toLowerCase().includes(searchTxt);
               });
               setFilterRestaurantsList(filteredList);
-            }}
-          >
+            }}>
             Search
           </button>
         </div>
       </div>
 
-      <div className="resturant-container">
+      <div className="flex flex-wrap items-center justify-center">
         {filterRestaurantsList.map((restaur) => (
         <Link to={"/restaurantmenu/" + restaur?.info?.id} key = {restaur?.info?.id}> <RestaurantCard key={restaur?.info?.id} {...restaur?.info} /> </Link>  
         ))}
