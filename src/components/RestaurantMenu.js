@@ -20,19 +20,23 @@ export const RestaurantMenu = () => {
 
     console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR)
 
-    const catergories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR.cards
-    catergories?.filter((c) => {
-          c.card.card?.["@type"] == "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
-        })
-   
+    const catergories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR.cards;
+    
+    const categoryData = catergories?.filter((c) => (
+          c.card.card?.["@type"] == "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+     ))
+
+    
 
     return (
-        <div className="menu">
-            <h1>{name}</h1>
-            <h2>{costForTwoMessage}</h2>
-            {catergories.map((catergorie)=> {
-                <RestaurantCategory  data = {catergorie?.card?.card}/>
-            })}
+        <div className="text-center">
+            <h1 className="text-xl font-bold">{name}</h1>
+            <h2 className="text-lg font-bold">{costForTwoMessage}</h2>
+
+            {categoryData?.map((catergory)=> (
+                <RestaurantCategory data={catergory?.card?.card} key={catergory?.card?.card.title}/>
+            ))}
+
         </div>
     );
 };

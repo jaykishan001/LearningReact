@@ -2008,6 +2008,6 @@ export const  restaurantList = [
         "type": "WEBLINK"
       }
     }
-  ];
+];
 
 export const MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6639328&lng=77.16924279999999&restaurantId=";

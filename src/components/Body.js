@@ -63,9 +63,6 @@ const Body = () => {
              <RestaurantCard {...restaur?.info} />
           ):<RestaurantOpen  {...restaur?.info}/>} 
 
-          
-         
-          
           </Link>  
           
 
