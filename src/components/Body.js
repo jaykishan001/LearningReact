@@ -1,6 +1,6 @@
  import React, { useState, useEffect } from "react";
 import { ShimmerUi } from "./Shimmer";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withOpenLabel } from "./RestaurantCard";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import useRestaurantData from "../utils/useRestaurantData";
@@ -10,7 +10,12 @@ const Body = () => {
 
   const {filterRestaurantsList, setFilterRestaurantsList, listOfRestaurants, setListOfRestaurants} = useRestaurantData();
 
+  const RestaurantOpen = withOpenLabel(RestaurantCard)
+
   const onlineStatus = useOnlineStatus();
+
+
+
 
   if(onlineStatus === false) 
   return (
@@ -50,7 +55,21 @@ const Body = () => {
 
       <div className="flex flex-wrap items-center justify-center">
         {filterRestaurantsList.map((restaur) => (
-        <Link to={"/restaurantmenu/" + restaur?.info?.id} key = {restaur?.info?.id}> <RestaurantCard key={restaur?.info?.id} {...restaur?.info} /> </Link>  
+          
+        <Link to={"/restaurantmenu/" + restaur?.info?.id} 
+              key = {restaur?.info?.id}>
+
+          {restaur.info?.aggregatedDiscountInfoV3===0 ? (
+             <RestaurantCard {...restaur?.info} />
+          ):<RestaurantOpen  {...restaur?.info}/>} 
+
+          
+         
+          
+          </Link>  
+          
+
+
         ))}
       </div>
     </div>

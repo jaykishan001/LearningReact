@@ -1,5 +1,6 @@
 import { CDN_URL } from "../utils/constant";
 
+
 const ResturantCard = ({name, cuisines, avgRating , costForTwo, locality,cloudinaryImageId}) =>{
     
     return (
@@ -13,6 +14,17 @@ const ResturantCard = ({name, cuisines, avgRating , costForTwo, locality,cloudin
           <h5>{locality}</h5>
        </div>
     )
+ }
+
+  export const withOpenLabel = (ResturantCard) => {
+   return (props) => {
+      return (
+         <div>
+            <label className="absolute bg-red-600 p-1 m-1 rounded-lg text-white" >{props?.aggregatedDiscountInfoV3?.header}</label>
+            <ResturantCard  {...props} />
+         </div>
+      )
+   }
  }
 
  export default ResturantCard;
