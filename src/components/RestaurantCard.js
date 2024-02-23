@@ -18,6 +18,7 @@ const ResturantCard = ({name, cuisines, avgRating , costForTwo, locality,cloudin
 
   export const withOpenLabel = (ResturantCard) => {
    return (props) => {
+      
       return (
          <div>
             <label className="absolute bg-red-600 p-1 m-1 rounded-lg text-white" >{props?.aggregatedDiscountInfoV3?.header}</label>

@@ -2,8 +2,8 @@ const Contact = () =>{
     return (
         <>
         <p>
-            Name:jaykishan sharma
-            contact number : 291381203
+            Name: jaykishan sharma<br/>
+            Contact Number: 291381203
         </p>
         </>
     )
